@@ -1,8 +1,6 @@
-import { Image, ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View } from "react-native";
-import { styles } from "./style";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { Styles } from './style'
 
-
-  
   export default function Index() {
     const MENU = [
       {
@@ -19,43 +17,55 @@ import { styles } from "./style";
         price: 5.99,
         image: require("@/assets/images/Chocolate.jpg")
       },
+
+      {
+        id: 3,
+        name: "Capuccino(250ml)",
+        description: "Capuccino feito na maquina com uma combinação...",
+        price: 5.99,
+        image: require("@/assets/images/chocolate-quente.png")
+      }
     ]
   
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <View style={Styles.container}>
+      <View style={Styles.header}>
         <Image
-          style={styles.headerImage}
+          style={Styles.headerImage}
           source={require("../assets/images/Foto-de-fundo.jpg")}
         />
-        <Text style={styles.restauranteName}>Café feliz :)</Text>
-        <Text style={styles.subtitle}> A melhor cafeteria do Brasil </Text>
+        <Text style={Styles.restauranteName}>Café feliz :)</Text>
+        <Text style={Styles.subtitle}> A melhor cafeteria do Brasil </Text>
+       <View style={Styles.navBar}>
+       <Text style={Styles.descriptionHome}>Cardapio</Text>
+       </View>
       </View>
 
-      <View style={styles.tabs}>
-        {["Combos", "Lanches", "Bebidas"].map((item) =>(
+      <View style={Styles.tabs}>
+        {["Café", "Chocolate", "Chás", "Sobremesas",].map((item) => (
           <TouchableOpacity>
-            <Text style={styles.tabsName}>{item}</Text>
+            <Text style={Styles.tabsName}>{item}</Text>
           </TouchableOpacity>
         ))}
-      </View>
+</View>
 
-          <ScrollView style={styles.menuList}>
+        <ScrollView style={Styles.menuList}>
+          {
+            MENU.map((item) => (
+              <TouchableOpacity style={Styles.menuItem}>
+                <View style={Styles.menuContent}>
+                  <Text style={Styles.itemName}>{item.name}</Text>
+                  <Text style={Styles.itemDescription}>{item.description}</Text>
+                  <Text style={Styles.itemPrice}>{item.price.toFixed(2)}</Text>
+                </View>
+                <Image style={Styles.itemImage} source={item.image}></Image>
+              </TouchableOpacity>
+            ))
+          }
+        </ScrollView>
 
-      {
-         MENU.map((item) => (
-          <TouchableOpacity style={styles.menuItem}>
-            <View style={styles.menuContent}>
-              <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemDescription}>{item.description}</Text>
-              <Text style={styles.itemPrice}>{item.price}</Text>
-            </View>
-            <Image style={styles.itemImage} source={item.image}/>
-          </TouchableOpacity>
-         ))
-      }
-      </ScrollView>
+     
     </View>
-  );
+  )
 }
