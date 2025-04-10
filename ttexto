@@ -41,3 +41,10 @@ export const Styles = StyleSheet.create({
 })
 
 import { styles } from "./style"
+
+
+
+height: "27%",
+        backgroundColor: "#0d513c",
+        borderBottomLeftRadius: 25,
+        borderBottomRightRadius: 25

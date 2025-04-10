@@ -1,32 +1,57 @@
 import { Link } from "expo-router";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { styles } from "./style"
-import coffee from "@/assets/images/coffee.svg"
+import { styles } from "./style";
 
-export default function LoginScreen(){
-    return(
+export default function LoginScreen() {
+    return (
         <View style={styles.abaDeLogin}>
-           <View style={styles.header}>
-            <Image source={require("@/assets/images/coffee.svg")} style={styles.imageHome}></Image>
-           </View>
-           <View>
-           <View style={styles.containerBox}>
-                <Text>E-mail</Text>
-                <TextInput placeholder="Seu e-mail"></TextInput>
+            /* Imagem */
+            <View>
+                <Image source={require("@/assets/images/coffee.svg")} />
             </View>
-            <View style={styles.containerBox}>
-                <Text>Senha</Text>
-                <TextInput placeholder="Sua senha" secureTextEntry></TextInput>
+
+            /* Texto de boas-vindas */
+            <View style={styles.textContainer}>
+                <Text style={styles.textCadastro}>Olá de volta</Text>
             </View>
-            <View style={styles.containerBox}>
-            <Link href={"/home/page"} asChild>
-            <TouchableOpacity>
-                <Text style={styles.containerBox}>Enviar</Text>
-            </TouchableOpacity>
-            </Link>
-            <Link href={"/cadastro/page"} style={styles.containerBox}><Text>Crie sua conta</Text></Link>
+
+            /* Contêiner principal */
+            <View style={styles.containerDad}>
+                {/* Campo de e-mail */}
+                <View style={styles.containerBox}>
+                    <Text>E-mail</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Seu e-mail"
+                        placeholderTextColor="#aaa"
+                    />
+                </View>
+
+                /* Campo de senha */
+                <View style={styles.containerBox}>
+                    <Text>Senha</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Sua senha"
+                        placeholderTextColor="#aaa"
+                        secureTextEntry
+                    />
+                </View>
+
+                /* Botão de envio */
+                <View style={styles.containerBox}>
+                    <Link href={"/home/page"} asChild>
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.buttonText}>Enviar</Text>
+                        </TouchableOpacity>
+                    </Link>
+                </View>
+
+                /* Link para criar conta */
+                <Link href={"/cadastro/page"}>
+                    <Text style={styles.linkText}>Crie sua conta</Text>
+                </Link>
             </View>
-           </View>
         </View>
-    )
+    );
 }

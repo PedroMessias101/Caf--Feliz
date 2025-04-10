@@ -6,16 +6,16 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     textContainer: {
-        flex: 1, // Faz o contêiner ocupar todo o espaço disponível
-        justifyContent: "center", // Centraliza verticalmente
-        alignItems: "center", // Centraliza horizontalmente
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     },
     textCadastro: {
-        textAlign: "center", // Centraliza horizontalmente
-        color: "#fff", // Cor do texto
-        fontSize: 24, // Tamanho do texto
-        fontWeight: "bold", // Negrito
-        marginTop: 20, // Espaçamento superior
+        textAlign: "center",
+        color: "#fff",
+        fontSize: 24,
+        fontWeight: "bold",
+        marginTop: 20,
     },
     containerDad: {
         marginTop: "30%",
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         width: "100%",
         borderTopRightRadius: 50,
         borderTopLeftRadius: 50,
-        backgroundColor: "#ffffff", // Fundo branco
+        backgroundColor: "#ffffff",
         padding: 20,
     },
     containerBox: {
